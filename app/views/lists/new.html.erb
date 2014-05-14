@@ -1,2 +1,12 @@
-<h1>Lists#new</h1>
-<p>Find me in app/views/lists/new.html.erb</p>
+<h1>New Shopping List</h1>
+<div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.number_field :number %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div> 
