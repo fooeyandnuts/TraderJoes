@@ -7,6 +7,10 @@ class User
   field :zip, type: String
   field :password_digest, type: String
 
+  validates :email, :name, uniqueness: :true, presence: :true
+
+  has_many :lists
+
 	def password
 		@password
 	end	
@@ -21,6 +25,11 @@ class User
   		self
 		else
   		false
+    	end
     end
-	end
+
+    def edit
+    	
+    end
+    
 end

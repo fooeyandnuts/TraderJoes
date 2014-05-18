@@ -9,6 +9,7 @@ gem 'genghis', '~> 1.4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'rails_12factor'
 
 gem 'gmaps4rails'
 

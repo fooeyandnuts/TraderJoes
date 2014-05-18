@@ -1,7 +1,10 @@
 TraderJoes::Application.routes.draw do
-  resources :users
+  resource :sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create, :edit]
   resources :lists
   resources :items
+
+  root 'lists#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

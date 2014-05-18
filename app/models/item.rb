@@ -1,5 +1,6 @@
 class Item
   include Mongoid::Document
-  field :name, type: String
-  field :number, type: String
+  field :item_name, type: String
+
+  has_and_belongs_to_many :lists
 end

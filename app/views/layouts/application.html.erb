@@ -11,33 +11,24 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Trader Joe's!</a>
+      <a class="navbar-brand" href="http://www.traderjoes.com/">Trader Joe's</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">New Shopping List</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account  <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Edit</a></li>
-            <li><a href="#">Log Out</a></li>
-          </ul>
+        <% if !self.current_user %>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+          <li><%= link_to "Sign In", new_sessions_path %></li>
+        <% else %>
+          <li class= 'navbar-text'>Hello, <%= current_user.name %></li>
+          
+          <li><%= link_to "Sign Out", sessions_path, :method => :delete %></li>
+        <% end %>
+      </ul>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -53,9 +44,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div class="container-fluid">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <%= yield %>
+</div>
 </body>
 </html>
 

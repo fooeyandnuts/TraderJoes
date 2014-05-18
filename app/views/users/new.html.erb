@@ -5,5 +5,33 @@
   Email: <%= f.text_field :email %>
   Password: <%= f.password_field :password %>
   Zip Code: <%= f.text_field :zip %>
-  <%= f.submit %>
+  <%= f.submit "Save User"%>
 <% end %>
+<%= link_to "Home", :root %>
+
+<div class= 'container-fluid'>
+	<div class= "jumbotron">
+		<h1>New User</h1>
+			<p><%= form_for @user do |f| %>
+				<div class="form-group col-sm-3">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group col-sm-3">
+            <%= f.label :email %>
+            <%= f.text_field :email, class: "form-control" %>
+        </div>
+        <div class="form-group col-sm-3">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: "form-control" %>
+        </div>
+        <div class="form-group col-sm-3">
+            <%= f.label :zip_code %>
+            <%= f.text_field :zip, class: "form-control" %>
+        </div>
+			  <th><a href="/sessions/new" class="btn btn-primary btn-lg" role="button" ><%= f.submit "Save User"%></a></th>
+			  <th><a href="/lists" class="btn btn-primary btn-lg" role="button" ><%= "Home" %></a></th>
+			<% end %></p>
+
+	</div>
+</div>
