@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:remember_token)
-    redirect_to lists_path
+    redirect_to users_path
   end
 
 end

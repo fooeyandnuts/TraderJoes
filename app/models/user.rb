@@ -1,4 +1,4 @@
-# require BCrypt
+require "bcrypt"
 
 class User
   include Mongoid::Document
@@ -31,5 +31,5 @@ class User
     def edit
     	
     end
-    
+
 end

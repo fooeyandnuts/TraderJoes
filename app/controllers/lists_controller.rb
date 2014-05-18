@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  
+  # before_action :authenticate_user
 # def index
 #     @show_all = params[:show_all]
 #     if @show_all == true
