@@ -7,7 +7,8 @@ class List
   has_many :list_items
 
   def items
-  	ListItem.where(list_id: id).map do |li|li.ingredient
+  	ListItem.where(list_id: id).map do |li|
+  		li.item
   	end
   end
 
@@ -15,8 +16,8 @@ class List
   	items.map(&:id)
   end
 
-  def item_ids(vals)
-  	my_li = ListIngredient.where(list_id: self.id).map(&:item_id)
+  def item_ids=(vals)
+  	my_li = ListItem.where(list_id: self.id).map(&:item_id)
   	vals.each do |s|
   		next if s.blank?
   		s_id = BSON::ObjectId.from_string(s)
@@ -27,7 +28,7 @@ class List
   	end
   end
   	my_li.each do |r|
-  		ListIngredient.find_by(list_id: self.id, item_id: r).destroy
+  		ListItem.find_by(list_id: self.id, item_id: r).destroy
   	end
   end
 end

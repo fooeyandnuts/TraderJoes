@@ -1,2 +1,11 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h1><%= @list.name %></h1>
+
+<p>Here are the <%= @list.items.count %> items that make up your shopping list:</p>
+
+<ol>
+<% @list.items.each do |i| %>
+  <li><%= i.name %></li>
+<% end %>
+</ol>
+
+<%= link_to "Edit your list", edit_list_path(@list) %>

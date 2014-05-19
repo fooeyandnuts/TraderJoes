@@ -16,4 +16,3 @@
 //= require gmaps/google
 //= require bootstrap
 //= require_tree .
-<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>

@@ -1,14 +1,1 @@
-<h1>New Shopping List</h1>
-
-<%= form_for @list do |f| %>
-  Name: <%= f.text_field :name %><br />
-
-  <%= collection_check_boxes :list, :item_ids, @items, :_id, :name %>
-
-  <%# @ingredients.each do |i| %>
-    <%#= check_box_tag :ingredients %>
-    <%#= i.name %>
-  <%# end %>
-  <br />
-  <%= f.submit %>
-<% end %>
+<%= render partial: 'form' %>

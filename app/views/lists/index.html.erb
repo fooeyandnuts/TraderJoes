@@ -1,10 +1,20 @@
 <div class= 'container-fluid'>
 	<div class= "jumbotron">
-		<h1>Your lists</h1>
-			<!-- <p>This web application is for the sole purpose of making a shopping list for Trader Joe's. I intend to add functionality for selecting your top 5 items and being able to view and filter other people's or store location's top 5 items. Hopefully soon. If you try to add a shopping list for a store other than Trader Joe's, I currently can't stop you, but I will not like you.</p> -->
-			<th><a href="/lists/new" class="btn btn-primary btn-lg" role="button" >New List</a></th>
-			<th><a href="/users/new" class="btn btn-info btn-lg" role="button" >Sign up!</a></th>
-
+		<h2>Your shopping lists</h2>
+			<% @lists.each do |l| %>
+			<ul>
+		    <li>
+		      <h3><%= l.name %></h3>
+		      <ul>
+		        <% l.items.each do |i| %>
+		          <li><%= i.item_name %></li>
+		        <% end %>
+		      </ul>
+		    </li>
+		  </ul>
+		<% end %>
+					<th><a href="/lists/new" class="btn btn-primary btn-lg" role="button" >New List</a></th>
+					<th><a href="/lists/edit" class="btn btn-info btn-lg" role="button" >Edit List</a></th>
 	</div>
 </div>
 
