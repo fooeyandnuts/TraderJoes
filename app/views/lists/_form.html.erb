@@ -1,12 +1,3 @@
-<%= form_for @list do |f| %>
-  Name: <%= f.text_field :name %><br />
-
-  <%= collection_check_boxes :list, :item_ids, @items, :_id, :item_name %>
-
-  <br />
-  <%= f.submit %>
-<% end %>
-
 
 <div class= 'container-fluid'>
 	<div class= "jumbotron">

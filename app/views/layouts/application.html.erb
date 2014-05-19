@@ -17,10 +17,14 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <% if self.current_user %>
           <li><a href="/lists">My Shopping Lists</a></li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav">
+        <% if self.current_user %>
           <li><a href="/items/new">New Items</a></li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if !self.current_user %>
