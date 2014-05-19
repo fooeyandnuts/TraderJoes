@@ -4,11 +4,12 @@
 			<% @lists.each do |l| %>
 			<ul>
 		    <li>
-		      <h3><%= l.name %><a href="/lists/edit" class="btn btn-warning btn-sm" role="button" >Edit List</a><a href="/lists/edit" class="btn btn-danger btn-sm" role="button" >Delete List</a></h3>
+		      <h3><%= l.name %></h3>
 		      <ul>
 		        <% l.items.each do |i| %>
 		          <li><%= i.item_name %></li>
 		        <% end %>
+		        <a href="/lists/edit" class="btn btn-warning btn-sm" role="button" >Edit List</a><a href="/lists/edit" class="btn btn-danger btn-sm" role="button" >Delete List</a>
 		      </ul>
 		    </li>
 		  </ul>

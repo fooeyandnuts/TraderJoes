@@ -1,0 +1,20 @@
+
+<div class= 'container-fluid'>
+	<div class= "jumbotron">
+		<h2>Trader Joe's Item</h2>
+			<p><%= form_for @item do |f| %>
+				<div class="form-group col-sm-3">
+            <%= f.label :item_name %>
+            <%= f.text_field :item_name, class: "form-control" %>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <%= f.submit 'Save Item', class: "btn btn-lg btn-success"%>
+          </div>
+        </div>
+			  </p>
+		  <% end %>
+
+	</div>
+</div>

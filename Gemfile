@@ -39,6 +39,9 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Use Columns in collection_check_box
+gem 'in_columns', '~> 0.2.0'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
