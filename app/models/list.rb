@@ -31,5 +31,9 @@ class List
   		ListItem.find_by(list_id: self.id, item_id: r).destroy
   	end
   end
+
+  def destroy
+  	
+  end
 end
 
