@@ -1,15 +1,31 @@
-<h1>User Edit</h1>
-<% if !self.current_user %>
-	<%= form_for (@user) do |f| %>
-		Name: <%= f.text_field :name %>
-		Email: <%= f.text_field :email %>
-		Password: <%= f.text_field :password %>
-		Zip: <%= f.text_field :zip %>
-		<%= f.submit "Save User" %>
-	<% end %>
-<% else %>
-	<%= link_to "Create New List", new_list_path %>
-	<%= link_to "Edit My List", edit_list_path(:id) %>
-<% end %>
 
-<%= link_to "Home", :root %>
+<div class= 'container-fluid'>
+	<div class= "jumbotron">
+		<h1>Edit User</h1>
+			<p><%= form_for @user do |f| %>
+				<div class="form-group col-sm-3">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group col-sm-3">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: "form-control" %>
+        </div>
+        <div class="form-group col-sm-3">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control" %>
+        </div>
+        <div class="form-group col-sm-3">
+          <%= f.label :zip_code %>
+          <%= f.text_field :zip, class: "form-control" %>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <%= f.submit 'Save User', class: "btn btn-lg btn-success"%>
+          </div>
+        </div>
+		  </p>
+		  <% end %>
+	</div>
+</div>

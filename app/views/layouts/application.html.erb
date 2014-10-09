@@ -11,7 +11,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/users">TJ's Listmaker
+      <a class="navbar-brand" href="/users">TJ's Shopping List
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -26,14 +26,21 @@
           <li><a href="/items/new">New Items</a></li>
         <% end %>
       </ul>
+      <ul class="nav navbar-nav">
+        <% if self.current_user %>
+          <li><a href="/items/index">All Items</a></li>
+        <% end %>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if !self.current_user %>
           <li><%= link_to "Sign Up", new_user_path %></li>
           <li><%= link_to "Sign In", new_sessions_path %></li>
         <% else %>
-          <li class= 'navbar-text'>Hello, <%= current_user.name %></li>
-          
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello, <%= current_user.name %> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          <li><%= link_to "Edit User Profile", edit_user_path(:id) %>
           <li><%= link_to "Sign Out", sessions_path, :method => :delete %></li>
+          </ul>
         <% end %>
       </ul>
         </li>
@@ -51,7 +58,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container-fluid">
+<div class="container-fluid" class="background">
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
   <% end %>

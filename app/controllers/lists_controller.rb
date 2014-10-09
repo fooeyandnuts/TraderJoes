@@ -1,18 +1,12 @@
 class ListsController < ApplicationController
-  # before_action :authenticate_user
-# def index
-#     @show_all = params[:show_all]
-#     if @show_all == true
-#       @items = Item.all
-#    end
-#   end
+  before_action :set_list, :only => [:show, :edit, :update, :destroy]
 
   def index
     @lists = List.all
   end
 
   def show
-    @list = List.find(params[:id])
+    respond_with @list
   end
 
   def new
@@ -26,12 +20,10 @@ class ListsController < ApplicationController
   end
 
   def edit
-    @list = List.find(params[:id])
     @items = Item.all
   end
 
   def update
-    @list = List.find(params[:id])
     if @list.update(params.require(:list).permit(:name, :item_ids => []))
       redirect_to lists_path
     else
@@ -45,6 +37,10 @@ class ListsController < ApplicationController
   end
 
   private
+
+  def set_list
+    @list = List.find(params[:id])
+  end
 
   def list_params
     params.require(:list).permit(:name, :number)

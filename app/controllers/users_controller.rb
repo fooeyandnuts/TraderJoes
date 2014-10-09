@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -7,39 +12,29 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "You have signed up successfully"
-      redirect_to :root
+      session[:remember_token] = @user.id.to_s
+      redirect_to root_path
     else
-      render :new
+      render 'new'
     end
-  end
-
-  def view
   end
 
   def edit
-
+    @user = User.find(user_params)
   end
 
   def update
-    if @user = User.update(user_params)
-      flash[:success] = "User profile has been updated"
-      redirect_to users_path
-    else
-      render "edit"
-    end
-  end
-
-  def show
-  end
-
-  def destroy
-    @user.destroy
-    redirect_to users_path
+    @user = User.find(params[:id])
+      if @user.update(user_params)
+        flash[:success] = "User profile has been updated"
+        redirect_to users_path
+      else
+        render 'edit'
+      end
   end
 
   protected
-
   def user_params
-    params.require(:user).permit(:name, :email, :zip, :password, :image)
+    params.require(:user).permit(:name, :email, :zip, :password, :password_confirmation)
   end
 end

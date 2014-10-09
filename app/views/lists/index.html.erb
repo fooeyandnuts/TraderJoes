@@ -10,6 +10,8 @@
 				          <li><%= i.item_name %></li>
 				        <% end %>
 				        <a href="/lists/edit" class="btn btn-info btn-sm" role="button" >Edit List</a><a href="/lists/edit" class="btn btn-danger btn-sm" role="button" >Delete List</a>
+				        <%= link_to " ", list_path(:id), {method: :delete, data: {confirm: "Are you sure you want to delete list?"}, class: "glyphicon glyphicon-trash show-link"} %>
+
 				      </ul>
 			    </li>
 			  </ul>
